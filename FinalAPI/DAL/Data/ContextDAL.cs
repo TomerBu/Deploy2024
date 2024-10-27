@@ -10,7 +10,7 @@ public class ContextDAL(DbContextOptions<ContextDAL> options) :
 {
     public DbSet<Category> Categories { get; set; } = default!;
     public DbSet<Product> Products { get; set; } = default!;
-
+    public DbSet<Comment> Comments { get; set; } = default!;
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
