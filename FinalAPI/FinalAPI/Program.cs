@@ -86,10 +86,25 @@ public class Program
 
         app.UseCors(corsPolicy);
 
+        // Apply pending migrations at startup
+        using (var scope = app.Services.CreateScope())
+        {
+            var services = scope.ServiceProvider;
+            try
+            {
+                var context = services.GetRequiredService<ContextDAL>();
+                context.Database.Migrate();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while migrating the database: {ex.Message}");
+            }
+        }
+
         // Configure the HTTP request pipeline.
         //if (app.Environment.IsDevelopment())
         //{
-            app.UseSwagger();
+        app.UseSwagger();
             app.UseSwaggerUI();
         //}
 
