@@ -74,7 +74,7 @@ public class Program
                         "http://localhost:3000",
                         "http://localhost:5173",
                         "http://localhost:5174",
-                        "https://brave-moss-0e0952700.5.azurestaticapps.net/"
+                        "https://brave-moss-0e0952700.5.azurestaticapps.net"
                         //host
                     ])
                 .AllowAnyHeader()
